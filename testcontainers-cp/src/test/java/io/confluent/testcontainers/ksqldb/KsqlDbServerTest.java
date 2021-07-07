@@ -131,17 +131,14 @@ public class KsqlDbServerTest {
             assertEquals(200, subjects.statusCode());
             assertThat(subjects.body(), containsString("movies_topic-value"));
 
+            //No need to specify columns. The topic already contains messages bound a schema... "mind the VALUE_FORMAT='JSON_SR'"
             //Create the stream "mind the offset reset"
-            String createStreamStmt = "CREATE STREAM movies_json_stream (" +
-                    "movie_id INT," +
-                    "title VARCHAR," +
-                    "release_year INT," +
-                    "producer_id INT" +
-                    ") WITH (" +
+            String createStreamStmt = "CREATE STREAM movies_json_stream " +
+                    "WITH (" +
                     "KAFKA_TOPIC='movies_topic', VALUE_FORMAT='JSON_SR'" +
                     ");";
 
-            String ksqlDbJsonRequest = createKsqlDbJsonRequest(createStreamStmt, Collections.singletonMap("ksql.streams.auto.offset.reset", "earliest"));
+            String ksqlDbJsonRequest = createKsqlDbJsonRequest(createStreamStmt, null);
             Map<String, String> status = given()
                     .body(ksqlDbJsonRequest)
                     .contentType(KSQLDB_REQUEST_CONTENT_TYPE)

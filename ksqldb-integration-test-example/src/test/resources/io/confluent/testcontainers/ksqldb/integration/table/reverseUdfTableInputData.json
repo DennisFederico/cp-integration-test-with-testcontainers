@@ -1,0 +1,8 @@
+//EACH LINE IS A JSON MAP TO CREATE AN INSERT FROM, THE ROOT KEY IS THE TABLE NAME
+// { "my_table_or_stream": { "strField":"strValue", "numeric":123} }
+{"text_table": { "line_number": 1, "text": "hello" }}
+{"text_table": { "text": "world", "line_number": 2 }}
+{"text_table": { "line_number": 3, "text": "this" }}
+{"text_table": { "text": "is", "line_number": 4 }}
+{"text_table": { "line_number": 5, "text": "kafka" }}
+{"text_table": { "text": "and ksqldb on fire", "line_number": 6 }}

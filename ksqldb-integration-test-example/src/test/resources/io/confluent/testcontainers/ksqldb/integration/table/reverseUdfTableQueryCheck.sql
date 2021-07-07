@@ -1,0 +1,1 @@
+SELECT REVERSE(text) FROM text_table EMIT CHANGES LIMIT 6;

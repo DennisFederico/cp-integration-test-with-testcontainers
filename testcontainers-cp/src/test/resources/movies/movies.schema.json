@@ -1,0 +1,53 @@
+{
+  "$schema": "http://movies-schema.example.com/movies/schema",
+  "$id": "http://movies-schema.example.com/movies.schema.json",
+  "type": "object",
+  "title": "A Movie Json Schema",
+  "description": "The root schema comprises the entire JSON document.",
+  "default": {},
+  "examples": [
+    {
+      "movie_id": 128,
+      "title": "The Big Lebowski",
+      "release_year": 1998
+    }
+  ],
+  "required": [
+    "movie_id",
+    "title",
+    "release_year"
+  ],
+  "properties": {
+    "movie_id": {
+      "$id": "#/properties/movie_id",
+      "type": "integer",
+      "title": "The movie_id schema",
+      "description": "the movie id",
+      "default": 0,
+      "examples": [
+        128
+      ]
+    },
+    "title": {
+      "$id": "#/properties/title",
+      "type": "string",
+      "title": "The title schema",
+      "description": "The movie title",
+      "default": "",
+      "examples": [
+        "The Big Lebowski"
+      ]
+    },
+    "release_year": {
+      "$id": "#/properties/release_year",
+      "type": "integer",
+      "title": "The release_year schema",
+      "description": "The year the movie was releases",
+      "default": 0,
+      "examples": [
+        1998
+      ]
+    }
+  },
+  "additionalProperties": true
+}
